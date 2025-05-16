@@ -1,6 +1,8 @@
 {
   "editor.glyphMargin": false,
   "files.eol": "\n", // Final de linha sempre será LF
+  "workbench.editor.labelFormat": "short", // Formato do nome dos arquivos abertos
+  "editor.tabSize": 2, // Tamanho da tabulação
   // 🛠 Formatação e Lint
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
