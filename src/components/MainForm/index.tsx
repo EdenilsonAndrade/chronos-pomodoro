@@ -47,7 +47,7 @@ export function MainForm() {
         activeTask: newTask,
         currentCycle: nextCycle,
         secondsRemaining,
-        formattedSecondsRemaining: formatSecondsToMinute(secondsRemaining),
+        formatedSecondsRemaining: formatSecondsToMinute(secondsRemaining),
         task: [...prevState.tasks, newTask],
       };
     });
