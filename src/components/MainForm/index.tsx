@@ -48,7 +48,7 @@ export function MainForm() {
         currentCycle: nextCycle,
         secondsRemaining,
         formatedSecondsRemaining: formatSecondsToMinute(secondsRemaining),
-        task: [...prevState.tasks, newTask],
+        tasks: [...prevState.tasks, newTask],
       };
     });
   }
@@ -60,6 +60,15 @@ export function MainForm() {
         activeTask: null,
         secondsRemaining: 0,
         formatedSecondsRemaining: '00:00',
+        tasks: prevState.tasks.map(task => {
+          if (prevState.activeTask?.id === task.id) {
+            return {
+              ...task,
+              interruptDate: Date.now(),
+            };
+          }
+          return task;
+        }),
       };
     });
   }
