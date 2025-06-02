@@ -5,15 +5,16 @@ import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import type { TaskModel } from '../../models/TaskModel';
-import { getNextCyble } from '../../utils/getNextCycle';
+import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionType } from '../../contexts/TaskContext/taskActions';
+import { Tips } from '../Tips';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
 
-  const nextCycle = getNextCyble(state.currentCycle);
+  const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
@@ -59,7 +60,7 @@ export function MainForm() {
       </div>
 
       <div className='formRow'>
-        <p>Próximo intervalor é de 25 minutos</p>
+        <Tips />
       </div>
 
       {state.currentCycle > 0 && (
