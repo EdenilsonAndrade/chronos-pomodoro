@@ -2,8 +2,8 @@ import { useEffect, useReducer } from 'react';
 import { initialTaskState } from './initialTaskState';
 import { TaskContext } from './TaskContex';
 import { taskReducer } from './taskReducer';
-import { TimmerWorkerManager } from '../../workers/TimerWorkerManager';
 import { TaskActionTypes } from './taskActions';
+import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
@@ -12,14 +12,12 @@ type TaskContextProviderProps = {
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
   const [state, dispatch] = useReducer(taskReducer, initialTaskState);
 
-  const worker = TimmerWorkerManager.getInstance();
+  const worker = TimerWorkerManager.getInstance();
 
   worker.onmessage(e => {
     const countDownSeconds = e.data;
-    console.log(countDownSeconds);
 
     if (countDownSeconds <= 0) {
-      //necessário rever o código
       dispatch({
         type: TaskActionTypes.COMPLETE_TASK,
       });
@@ -36,7 +34,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     if (!state.activeTask) {
       console.log('Worker terminado por falta de activeTask');
       worker.terminate();
-      return;
     }
 
     worker.postMessage(state);

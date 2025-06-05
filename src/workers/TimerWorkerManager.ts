@@ -1,8 +1,8 @@
 import type { TaskStateModel } from '../models/TaskStateModel';
 
-let instance: TimmerWorkerManager | null = null;
+let instance: TimerWorkerManager | null = null;
 
-export class TimmerWorkerManager {
+export class TimerWorkerManager {
   private worker: Worker;
 
   private constructor() {
@@ -11,8 +11,9 @@ export class TimmerWorkerManager {
 
   static getInstance() {
     if (!instance) {
-      return new TimmerWorkerManager();
+      instance = new TimerWorkerManager();
     }
+
     return instance;
   }
 
@@ -20,8 +21,8 @@ export class TimmerWorkerManager {
     this.worker.postMessage(message);
   }
 
-  onmessage(callback: (event: MessageEvent) => void) {
-    this.worker.onmessage = callback;
+  onmessage(cb: (e: MessageEvent) => void) {
+    this.worker.onmessage = cb;
   }
 
   terminate() {
