@@ -7,9 +7,14 @@ export function Footer() {
       <RouterLink href='/about-pomodoro'>
         Entenda como funciona a técnica de pomodoro
       </RouterLink>
-      <RouterLink href=''>
-        Chronos Pomodoro &copy; {new Date().getFullYear()}
-      </RouterLink>
+      <a
+        href='https://www.linkedin.com/in/edenilson-de-andrade-276881110/'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Chronos Pomodoro &copy; {new Date().getFullYear()} — Desenvolvido por
+        Edenilson de Andrade
+      </a>
     </footer>
   );
 }
