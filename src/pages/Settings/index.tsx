@@ -6,7 +6,7 @@ import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 import styles from './styles.module.css';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { showMessage } from '../../adapters/showMessage';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
@@ -58,6 +58,11 @@ export function Settings() {
     });
     showMessage.success('Configurações salvas com sucesso!');
   }
+
+  useEffect(() => {
+    document.title = 'Chronos Pomodoro - Configurações';
+  }, []);
+
   return (
     <MainTemplate>
       <Container>

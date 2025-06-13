@@ -40,8 +40,8 @@ export function Menu() {
       <RouterLink
         className={styles.menuLink}
         href='/'
-        aria-label='Home'
-        title='Home'
+        aria-label='Início'
+        title='Início'
       >
         <HouseIcon />
       </RouterLink>
