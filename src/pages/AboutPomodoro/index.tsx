@@ -23,10 +23,12 @@ export function AboutPomodoro() {
             garantir descansos para evitar o cansaço mental.
           </p>
 
-          <img
-            src='https://www.tempoeficiente.com.br/wp-content/uploads/2023/12/gerenciamento-do-tempo-produtividade-tecnica-pomodoro-tempo-eficiente.jpg'
-            alt=''
-          />
+          <div style={{ justifyItems: 'center' }}>
+            <img
+              src='https://www.tempoeficiente.com.br/wp-content/uploads/2023/12/gerenciamento-do-tempo-produtividade-tecnica-pomodoro-tempo-eficiente.jpg'
+              alt=''
+            />
+          </div>
 
           <h2>Como funciona o Pomodoro tradicional?</h2>
           <ul>
